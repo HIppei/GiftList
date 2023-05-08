@@ -8,7 +8,7 @@ class MerkleTree {
   }
 
   getRoot() {
-    return bytesToHex(this._getRoot(this.leaves));
+    return bytesToHex(this._getRoot());
   }
 
   getProof(index, layer = this.leaves, proof = []) {
@@ -37,11 +37,7 @@ class MerkleTree {
       }
     }
 
-    return this.getProof(
-      Math.floor(index / 2),
-      newLayer,
-      proof
-    );
+    return this.getProof(Math.floor(index / 2), newLayer, proof);
   }
 
   // private function
